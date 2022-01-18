@@ -168,7 +168,8 @@ input:focus {
   opacity: 0.9;
 }
 
-.btn:disabled {
+
+.isDisabled {
   background-color: #cccccc;
   color: #333;
   cursor: auto;
@@ -225,4 +226,21 @@ input:focus {
   .input-group input {
     width: 80%;
   }
+ 
+}
+.footer{
+  color:#fff;
+  margin: 0 auto;
+  position: absolute;
+  top: 90%;
+  justify-content: center;
+
+}
+
+.footer a{
+  color:#ff6a95;
+  text-decoration: none;
+ 
+ 
+
 }
