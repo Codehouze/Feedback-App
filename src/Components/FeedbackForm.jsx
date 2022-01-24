@@ -2,7 +2,7 @@ import { useState } from "react";
 import RatingSelect from "./RatingSelect";
 import Card from "./shared/Card";
 import Button from "./shared/Button";
-function FeedbackForm() {
+function FeedbackForm({handleAdd}) {
   const [text, setText] = useState("");
   const [rating, setRating] = useState(10);
   const [message, setMessage] = useState("");
@@ -28,7 +28,9 @@ function FeedbackForm() {
         text,
         rating,
       };
-      console.log(newFeedback);
+      handleAdd(newFeedback);
+
+      setText('');
     }
   };
   return (
