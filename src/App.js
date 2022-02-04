@@ -29,12 +29,12 @@ function App() {
           </Routes>
 
           <AboutIconLink />
-        </div>
-        <div className="footer">
+       </div> 
+        {/* <div className="footer">
           <h2>
             Powered by<a href="https://github.com/Codehouze"> Codehouze</a>
           </h2>
-        </div>
+        </div> */}
       </Router>
     </FeedbackProvider>
   );
