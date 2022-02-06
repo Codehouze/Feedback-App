@@ -2,7 +2,7 @@
   "name": "feedback-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://feedbackbe1.herokuapp.com",
+  "proxy": "https://my-json-server.typicode.com/codehouze/FeedBack_Be",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
