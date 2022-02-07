@@ -20,7 +20,7 @@ export const FeedbackProvider = ({ children }) => {
 
   //fetch feedback
   const fetchFeedback = async () => {
-    const response = await fetch(`/feedback?_sort=id&_order=desc`);
+    const response = await fetch(`/feedback?_sort=id&_order=desc`,{ mode: 'no-cors'});
     const data = await response.json();
     console.log(data);
     setFeedback(data);
