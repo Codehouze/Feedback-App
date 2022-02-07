@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 //  import SweetAlert from '../Components/shared/SweetAlert';
-
+const baseUrl = `https://feedbackbe1.herokuapp.com`
 
 const FeedbackContext = createContext();
 
@@ -20,7 +20,7 @@ export const FeedbackProvider = ({ children }) => {
 
   //fetch feedback
   const fetchFeedback = async () => {
-    const response = await fetch(`https://feedbackbe1.herokuapp.com/feedback?_sort=id&_order=desc`);
+    const response = await fetch(`${baseUrl}/feedback?_sort=id&_order=desc`);
     const data = await response.json();
     console.log(data);
     setFeedback(data);
@@ -28,30 +28,29 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   const addFeedback = async (newFeedback) => {
-    const response = await fetch(`/feedback`, {
+    const response = await fetch(`${baseUrl}/feedback`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        Accept: "application/json",
       },
       body: JSON.stringify(newFeedback),
     });
 
     const data = await response.json();
-    console.log(data);
 
     setFeedback([data, ...feedback]);
   };
 
   const deleteFeedback = async (id) => {
     if (window.confirm("Are you sure you want to delete?")) {
-      await fetch(`/feedback/${id}`, { method: "DELETE" });
+      await fetch(`${baseUrl}/feedback/${id}`, { method: "DELETE" });
       setFeedback(feedback.filter((item) => item.id !== id));
     }
   };
   //update feedback items
   const updateFeedback = async (id, updItem) => {
-    const response = await fetch(`/feedback/${id}`, {
+    const response = await fetch(`${baseUrl}/feedback/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
