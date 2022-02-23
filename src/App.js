@@ -17,9 +17,10 @@ function App() {
 
         <div className="container">
           <Routes>
-            <Route path="/" element={ <Login />} />
+            {/* <Route path="/" element={ <Login />} /> */}
+           
             <Route
-              path="/home"
+              path="/"
               element={
                 <>
                   <FeedbackForm />
