@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 //  import SweetAlert from '../Components/shared/SweetAlert';
-const baseUrl = `https://feedbackbe1.herokuapp.com`
+import env from "react-dotenv";
+const baseUrl = env.BASE_URL
 
 const FeedbackContext = createContext();
 
@@ -14,15 +15,13 @@ export const FeedbackProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    console.log(fetchFeedback());
-    // fetchFeedback();
+    fetchFeedback();
   }, []);
 
   //fetch feedback
   const fetchFeedback = async () => {
     const response = await fetch(`${baseUrl}/feedback?_sort=id&_order=desc`);
     const data = await response.json();
-    console.log(data);
     setFeedback(data);
     setIsLoading(false);
   };

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
+import Login from "./Components/Login";
 import FeedbackList from "./Components/FeedbackList";
 import FeedbackStats from "./Components/FeedbackStats";
 import FeedbackForm from "./Components/FeedbackForm";
@@ -10,13 +11,15 @@ import AboutIconLink from "./Components/AboutIconLink";
 function App() {
   return (
     <FeedbackProvider>
+     
       <Router>
         <Header />
 
         <div className="container">
           <Routes>
+            <Route path="/" element={ <Login />} />
             <Route
-              path="/"
+              path="/home"
               element={
                 <>
                   <FeedbackForm />
@@ -29,7 +32,7 @@ function App() {
           </Routes>
 
           <AboutIconLink />
-       </div> 
+        </div>
         {/* <div className="footer">
           <h2>
             Powered by<a href="https://github.com/Codehouze"> Codehouze</a>

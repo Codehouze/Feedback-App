@@ -1,24 +1,23 @@
-import { useState,useContext,useEffect } from "react";
-import FeedbackContext from '../Context/FeedbackContext'
+import { useState, useContext, useEffect } from "react";
+import FeedbackContext from "../Context/FeedbackContext";
 import RatingSelect from "./RatingSelect";
 import Card from "./shared/Card";
 import Button from "./shared/Button";
 function FeedbackForm() {
-  
   const [text, setText] = useState("");
-  const [rating, setRating] = useState(10);
+  const [rating, setRating] = useState(1);
   const [message, setMessage] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
 
-  const {addFeedback, feedbackEdit,updateFeedback} = useContext(FeedbackContext)
-useEffect(()=>{
- if(feedbackEdit.edit===true)
-  {
-   setBtnDisabled(false)
-   setText(feedbackEdit.item.text)
-   setRating(feedbackEdit.item.rating)
- }
-},[feedbackEdit])
+  const { addFeedback, feedbackEdit, updateFeedback } =
+    useContext(FeedbackContext);
+  useEffect(() => {
+    if (feedbackEdit.edit === true) {
+      setBtnDisabled(false);
+      setText(feedbackEdit.item.text);
+      setRating(feedbackEdit.item.rating);
+    }
+  }, [feedbackEdit]);
   const handleTextChange = (e) => {
     if (text === "") {
       setBtnDisabled(true);
@@ -39,12 +38,12 @@ useEffect(()=>{
         text,
         rating,
       };
-      if(feedbackEdit.edit===true){
-        updateFeedback(feedbackEdit.item.id,newFeedback)
+      if (feedbackEdit.edit === true) {
+        updateFeedback(feedbackEdit.item.id, newFeedback);
+      } else {
+        addFeedback(newFeedback);
       }
-      else{ addFeedback(newFeedback);
-      }
-      setText('');
+      setText("");
     }
   };
   return (
