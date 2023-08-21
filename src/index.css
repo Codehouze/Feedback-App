@@ -244,3 +244,8 @@ input:focus {
  
 
 }
+
+ .link {
+  color: #ff6a95;
+  text-decoration: none;
+}

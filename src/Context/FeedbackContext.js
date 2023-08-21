@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from "react";
-//  import SweetAlert from '../Components/shared/SweetAlert';
+// import SweetAlert from "../Components/shared/SweetAlert";
 import env from "react-dotenv";
-const baseUrl = env.BASE_URL
+const baseUrl = env.BASE_URL;
 
 const FeedbackContext = createContext();
 
